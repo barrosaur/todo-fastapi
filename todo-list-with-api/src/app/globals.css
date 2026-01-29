@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.shadow-bottom-black {
+  box-shadow: 0 0 15px var(--foreground);
+}
+
+.shadow-all-sides {
+  box-shadow: 0 0 10px var(--foreground);
+}
+
+.rounded-half {
+  border-radius: 50%;
+}
