@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from models.todos import Todo
@@ -27,3 +27,20 @@ def create_todo(todo: TodoCreate, db:Session = Depends(get_db)):
 @app.get('/todo_list', response_model=list[TodoOut])
 def get_todos(db: Session = Depends(get_db)):
   return db.query(Todo).all()
+
+@app.get('/todo_list/{todo_id}')
+def get_todo(todo_id: str, db: Session = Depends(get_db)):
+  todo = db.query(Todo).filter(Todo.todo_id == todo_id).first()
+  if not todo:
+    raise HTTPException(status_code=404, detail="List Item not Found")
+  return todo
+
+@app.delete('/todo_list/{todo_id}')
+def delete_todo(todo_id: str, db: Session = Depends(get_db)):
+  todo = db.query(Todo).filter(Todo.todo_id == todo_id).first()
+  if not todo:
+    raise HTTPException(status_code=404, detail="List Item not Found")
+  
+  db.delete(todo)
+  db.commit()
+  return {"message" : "Deleted"}

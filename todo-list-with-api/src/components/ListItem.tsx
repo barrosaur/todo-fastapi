@@ -22,16 +22,19 @@ const ListItem = ({ title, updated_at, todo_id, onOpen, onDelete, onEdit } : Lis
           label='Open'
           onClick={onOpen}
           className="flex items-center justify-center text-center bg-green-700 py-1 px-5 font-bold text-white hover:bg-green-800 w-24 h-10"
+          imgSrc=""
         />
         <Button
           label='Edit'
           onClick={onEdit}
           className="flex items-center justify-center text-center bg-gray-800 py-1 px-5 font-bold text-white hover:bg-gray-900 w-24 h-10"
+          imgSrc=""
         />
         <Button
           label='Delete'
           onClick={onDelete}
           className="flex items-center justify-center text-center bg-red-600 py-1 px-5 font-bold text-white hover:bg-red-700 w-24 h-10"
+          imgSrc=""
         />
       </div>
     </div>

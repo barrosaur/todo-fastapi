@@ -4,7 +4,7 @@ import { ComponentProps } from 'react'
 
 interface ButtonProps extends ComponentProps<'button'> {
   label: string | null, 
-  imgSrc: string | null,
+  imgSrc: string,
   width: number,
   height: number,
   alt: string,

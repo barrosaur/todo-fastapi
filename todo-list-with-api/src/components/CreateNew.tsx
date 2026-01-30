@@ -26,7 +26,7 @@ const CreateNew = ({ onClose }: CreateNewProps) => {
     };
 
     try {
-      const res = await fetch("http://localhost:8000/todo_post", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/todo_post`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
